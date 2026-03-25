@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: interop_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: interop
+      POSTGRES_USER: interop
+      POSTGRES_PASSWORD: interop
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql
